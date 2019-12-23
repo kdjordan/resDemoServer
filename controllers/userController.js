@@ -91,10 +91,10 @@ exports.apiLogin = function(req, res) {
             }
         }).catch((e) => {
             console.log('sending error here')
+            console.log(usersCollection)
             res.send('Please try again later' + e);
         })
     } else {
-        console.log('sending error over here')
         res.send('error')
     }
 };
