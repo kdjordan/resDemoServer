@@ -43,7 +43,11 @@ exports.apiMakeReservation = (req, res) => {
                 madeFor: info.ops[0].guest,
                 phone: info.ops[0].phone,
                 start: info.ops[0].resDates.split('to')[0],
-                end: info.ops[0].resDates.split('to')[1]
+                end: info.ops[0].resDates.split('to')[1],
+                cleaned: info.ops[0].cleaned,
+                cleanedById: info.ops[0].cleanedById,
+                cleanedBy: info.ops[0].cleanedBy,
+                cleanedDate: info.ops[0].cleanedDate
             }
            res.send(returnObj)
     }).catch((e) => {
@@ -59,7 +63,11 @@ exports.apiGetReservations = async (req, res) => {
                     resDates: 1,
                     guest: 1,
                     phone: 1,
-                    madeBy: 1
+                    madeBy: 1,
+                    cleaned: 1,
+                    cleanedBy: 1,
+                    cleanedById: 1,
+                    cleanedDate: 1
                 }},
                 {$sort: {resDates: 1}}
             ]).toArray();
@@ -76,8 +84,8 @@ exports.apiGetReservations = async (req, res) => {
 exports.apiDeleteReservation = (req, res) => {
     if(ObjectID.isValid(req.params.id)) {
         reservationsCollection.deleteOne({_id: new ObjectID(req.params.id)}).
-        then((data) => {
-            res.send(req.body.id)
+        then(() => {
+            res.send(req.params.id)
         }).catch((e) => {
             res.send('error')
         })
@@ -85,7 +93,6 @@ exports.apiDeleteReservation = (req, res) => {
 }
 
 exports.reservationCleaned = (req, res) => {
-   //TODO:: HANDLE RETURN ON FRONTEND
     let insertObj = {
         cleaned: true,
         cleanedBy: req.body.keeperName,
@@ -97,8 +104,11 @@ exports.reservationCleaned = (req, res) => {
         { _id: new ObjectID(req.body.resId) },
         { $set: insertObj }
     ).then((data) => {
-        console.log(data)
-        // res.send(data.value)
+        if(data.value) {
+            res.send({cleanedDate: new Date()})
+        } else {
+            res.send('error')
+        }
     }).catch((e) => {
         res.send(e)
     });

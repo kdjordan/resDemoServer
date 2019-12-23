@@ -69,25 +69,3 @@ exports.apiUpdateHome = (req, res) => {
     });
 }
 
-
-// exports.register = async function(req, res) {
-//     try {
-//         let newHome = new Home(req.body);
-//         if(newHome.register()){
-//             req.flash('adminTitleMessage', "home added successfully");
-//             req.session.save(function() {
-//                 res.redirect('/admin');
-//             });
-//         } else {
-//             req.flash('adminTitleMessage', "Uh OH - That didn't work !");
-//             req.session.save(function() {
-//                 res.redirect('/admin');
-//             })
-//         }
-
-//     } catch(e) {
-//         res.render('404', e);
-//     }
-// };
-
-
