@@ -90,9 +90,11 @@ exports.apiLogin = function(req, res) {
                 res.send('invalid');
             }
         }).catch((e) => {
+            console.log('sending error here')
             res.send('Please try again later' + e);
         })
     } else {
+        console.log('sending error over here')
         res.send('error')
     }
 };
