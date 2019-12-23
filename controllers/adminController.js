@@ -4,6 +4,7 @@ const jwt = require('jsonwebtoken');
 
 
 exports.apiGetMenuData = async function(req, res) {
+    console.log('gettng menu data')
     try{
         let usersArrPromise  = this.getUsersData();
         let homesArrPromise = this.getHomesData();  

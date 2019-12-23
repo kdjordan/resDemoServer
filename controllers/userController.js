@@ -71,6 +71,7 @@ exports.apiDeleteUser = function(req, res) {
 }
 exports.apiLogin = function(req, res) {
     console.log('hitting user login')
+    console.log(req.body)
    
     if(this.checkInput(req.body.userName) && this.checkInput(req.body.password)){
         usersCollection.findOne({userName: req.body.userName})
