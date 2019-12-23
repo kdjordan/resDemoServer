@@ -1,6 +1,5 @@
 const apiRouter = require('express').Router();
 const userController = require('./controllers/userController');
-// const reservationController = require('./controllers/reservationController');
 const adminController = require('./controllers/adminController');
 const homeController = require('./controllers/homeController');
 const resController = require('./controllers/resController');
