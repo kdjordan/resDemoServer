@@ -1,7 +1,7 @@
 const mongodb = require('mongodb');
 const dotenv = require('dotenv').config();
 
-let port = process.env.PORT
+let port = process.env.PORT || 8080;
 
 if(port == null || port == "") {
     port = 3001
