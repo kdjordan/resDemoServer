@@ -82,6 +82,8 @@ exports.apiLogin = function(req, res) {
                 //add JWT to response object
                 let theToken = jwt.sign( {_id: data._id}, process.env.JWTSECRET, { expiresIn: '30m'})
                 data = {...data, token: theToken, expires: 1800}
+                console.log('sending')
+                console.log(data)
                 res.send(data);
             } else {
                 console.log('sending invalid')
