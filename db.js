@@ -10,5 +10,6 @@ if(port == null || port == "") {
 mongodb.connect(process.env.CONNECTIONSTRING, {useUnifiedTopology: true, useNewUrlParser: true}, function(err, client) {
     module.exports = client;
     const app = require('./app');
+    console.log('app listening on ' + port)
     app.listen(port);
 });

@@ -4,7 +4,8 @@
   "description": "",
   "main": "db.js",
   "scripts": {
-    "start": "node db.js"
+    "start": "node db.js",
+    "nodemon" : "nodemon"
   },
   "repository": {
     "type": "git",
