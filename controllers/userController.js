@@ -80,8 +80,8 @@ exports.apiLogin = function(req, res) {
                 let data = attemptedUser;
                 delete data.userPassword;
                 //add JWT to response object
-                let theToken = jwt.sign( {_id: data._id}, process.env.JWTSECRET, { expiresIn: '30m'})
-                data = {...data, token: theToken, expires: 1800}
+                let theToken = jwt.sign( {_id: data._id}, process.env.JWTSECRET, { expiresIn: '5s'})
+                data = {...data, token: theToken, expires: 5}
                 console.log('sending')
                 console.log(data)
                 res.send(data);
@@ -99,7 +99,6 @@ exports.apiLogin = function(req, res) {
 };
 
 exports.apiMustBeLoggedIn = function(req, res, next) {
-    
     try {
         let userDoc = jwt.verify(req.body.token, process.env.JWTSECRET);
         if(userDoc) {
