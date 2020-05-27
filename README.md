@@ -1,6 +1,6 @@
 # Vacation Rentals App
 
-> Front End of FullStack JS App
+> Back End of FullStack JS App
 
 ## The Setup
 
