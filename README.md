@@ -1,6 +1,6 @@
 # Vacation Rentals App
 
-> Back End of FullStack JS App
+> Backend of FullStack JS App
 
 ## The Setup
 
@@ -11,7 +11,7 @@ When logging in, a regular user is directed to the first home that she is author
 If the user is an admin, the profile dropdown has a link that allows the user to access the admin area.  
 If a housekeeper logs in, he is able to see what reservations have been made and also check off if the home has been cleaned.
 
-The front end is Vue/Nuxt.  
+The frontend is Vue/Nuxt.  
 This is the Express/Node API that handles all of the DB CRUD operations and has backend route protection utilizing JWTs. The DB is Mongo.  
 Both the front end and Node backend are deployed on Heroku.  
 For front end session management it uses the Node generated JWTs and middleware to protect routes.  
